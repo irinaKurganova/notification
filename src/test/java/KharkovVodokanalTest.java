@@ -1,20 +1,18 @@
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
 import java.io.File;
-//import o
 
 /**
  * Created by irina on 08/10/2018.
  */
-public class KharkovVodokanalTest
-//		extends BaseStory
-{
+public class KharkovVodokanalTest {
+
 	public static final String FIREFOX_DRIVER = "firefox";
 
 	public static final String CHROME_DRIVER = "chrome";
@@ -27,26 +25,24 @@ public class KharkovVodokanalTest
 
 	public static final String WEBDRIVER_CHROME_SYSTEM_PROPERTY = "webdriver.chrome.driver";
 
-	private  WebDriver driver = null;
+	private WebDriver driver = null;
 
 	@Before
-	public  void setupClass() {
-		if (FIREFOX_DRIVER.equals(System.getProperty(BROWSER_PROPERTY))) {
+	public void setupClass() {
+		if(FIREFOX_DRIVER.equals(System.getProperty(BROWSER_PROPERTY))) {
 			driver = new FirefoxDriver();
-		} else if (CHROME_DRIVER.equals(System.getProperty(BROWSER_PROPERTY))) {
-			File resourcesDirectory = new File("selenium/"+CHROME_DRIVER_NAME);
+		} else if(CHROME_DRIVER.equals(System.getProperty(BROWSER_PROPERTY))) {
+			File resourcesDirectory = new File("selenium/" + CHROME_DRIVER_NAME);
 			System.setProperty(WEBDRIVER_CHROME_SYSTEM_PROPERTY, resourcesDirectory.getAbsolutePath());
 			driver = new ChromeDriver();
 			driver.get("http://vodokanal.kharkov.ua/");
-
 		}
 	}
 
 	@Test
 	public void printVodokanalDataAboutRepair() {
 		driver.get(GOOGLE_PAGE_URL);
-//		kharkovVodokanalPageSteps.clickOnNewsLink();
-		Assert.assertTrue(true);
+		Assert.assertEquals(driver.getTitle(), "Google");
 	}
 
 	@After
