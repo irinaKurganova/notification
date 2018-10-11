@@ -1,0 +1,11 @@
+#!/bin/bash
+
+platform=$('uname')
+
+if [ $platform == 'Linux' ]; then
+       ./driver/chromedriver_linux "$@"
+fi
+
+if [ $platform == 'Darwin' ]; then
+       ./driver/chromedriver_mac "$@"
+fi
