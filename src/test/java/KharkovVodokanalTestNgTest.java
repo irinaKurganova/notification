@@ -33,7 +33,7 @@ public class KharkovVodokanalTestNgTest
 
 	@BeforeClass
 	public void setupClass() {
-		System.out.print("Hi");
+		System.out.print("Before class");
 		if (FIREFOX_DRIVER.equals(System.getProperty(BROWSER_PROPERTY))) {
 			driver = new FirefoxDriver();
 		} else if (CHROME_DRIVER.equals(System.getProperty(BROWSER_PROPERTY))) {
